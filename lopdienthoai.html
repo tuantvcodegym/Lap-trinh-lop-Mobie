@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop dien thoai</title>
+</head>
+<body>
+<script>
+    function Mobile(pin,status) {
+        this.pin = 50;
+        this.text;
+        this.thuden = new Array();
+        this.thudi = new Array();
+
+        this.xacPin =function () {
+            if(this.pin < 5){
+                this.pin ++
+            }
+        };
+        this.soanTin = function () {
+            var inbox = prompt('ban muon gui tin nhan cho iphone');
+            this.text = inbox;
+            this.thudi.push(this.text);
+        };
+        this.nhanTin = function () {
+            this.thuden.push(this.text);
+            this.pin --;
+            document.write('Co tin nhan moi tu Nokia: ' + '<br>' + 'Noi dung: ' + dienThoai.thuden + '<br>' + ' Battery: ' + this.pin + '%');
+            console.log(dienThoai.thuden);
+        };
+        this.send =function () {
+            dienThoai.soanTin();
+            this.pin --;
+        };
+        this.xemThuDen = function () {
+            this.thuden.push(this.text);
+            this.pin --;
+            console.log(dienThoai.thuden + ' Battery: ' + this.pin + '%');
+        };
+        this.xemThuDi = function () {
+            this.thudi.push(this.text);
+            this.pin --;
+            console.log(dienThoai.thudi[0] + ' Battery: ' + this.pin + '%');
+        };
+        this.iPhone = function () {
+            if(confirm('co mot tin nhan moi tu Nokia. Ban co muon hien thi no')){
+                dienThoai.nhanTin();
+            }else {
+                document.write('Da dong');
+            }
+        };
+
+        this.noKiA = function () {
+            dienThoai.send();
+        }
+    }
+    var dienThoai = new Mobile(50,status);
+    dienThoai.noKiA();
+    dienThoai.iPhone();
+    dienThoai.xemThuDi();
+</script>
+</body>
+</html>
